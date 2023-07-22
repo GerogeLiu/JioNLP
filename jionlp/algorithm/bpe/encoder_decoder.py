@@ -13,9 +13,9 @@
 
 def _bytes_to_unicode():
     """
-    所有 uft-8 的 unicode 都由 byte 构成，所有的 byte 总共 256 个，但由于其中一些属于控制字符，
-    无具体打印符号，因此需要将这些符号后移 256 位，从而映射到可打印符号。
-    所有这些符号均为 unicode 字符。
+    utf-8是unicode的一种实现方式，一个字节(byte)，即8位二进制可以表达256种不同的状态，由于256种编码中存在不可打印字符，需要将不可打印字符映射到可打印字符。
+    映射方法：将不可打印字符的编码+256，即整体向后移动一个字节位置
+    返回：实际编码与对应映射字符（将不可打印字符整体偏移后的字符映射）
 
     Returns list of utf-8 byte and a corresponding list of unicode strings.
     The reversible bpe codes work on unicode strings.
